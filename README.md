@@ -1,1 +1,1 @@
-![Circuit Diagram](IMGProximity_Sensor)
+![Circuit Diagram](IMGProximity_Sensor.png)

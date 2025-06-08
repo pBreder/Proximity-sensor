@@ -1,6 +1,6 @@
-int trigPin = 12;
-int echoPin = 13;
-int leds[] = {3, 5, 6, 9, 10};
+int trigPin = 3;
+int echoPin = 2;
+int leds[] = {10, 9, 6, 5, 4};
 
 void setup()
 {

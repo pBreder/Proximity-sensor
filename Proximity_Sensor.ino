@@ -32,31 +32,32 @@ void loop()
     digitalWrite(leds[i], LOW);
   }
 
-  if (distance > 5 && distance < 10) {
-    digitalWrite(leds[0], HIGH);
-  }
-  else if (distance >= 10 && distance < 15) {
-    digitalWrite(leds[0], HIGH);
-    digitalWrite(leds[1], HIGH);
-  }
-  else if (distance >= 15 && distance < 20) {
-    digitalWrite(leds[0], HIGH);
-    digitalWrite(leds[1], HIGH);
-    digitalWrite(leds[2], HIGH);
-  }
-  else if (distance >= 20 && distance < 25) {
-    digitalWrite(leds[0], HIGH);
-    digitalWrite(leds[1], HIGH);
-    digitalWrite(leds[2], HIGH);
-    digitalWrite(leds[3], HIGH);
-  }
-  else if (distance >= 25) {
+  if (distance <= 5) {
     digitalWrite(leds[0], HIGH);
     digitalWrite(leds[1], HIGH);
     digitalWrite(leds[2], HIGH);
     digitalWrite(leds[3], HIGH);
     digitalWrite(leds[4], HIGH);
   }
+  else if (distance > 5 && distance <= 10) {
+    digitalWrite(leds[0], HIGH);
+    digitalWrite(leds[1], HIGH);
+    digitalWrite(leds[2], HIGH);
+    digitalWrite(leds[3], HIGH);
+  }
+  else if (distance > 10 && distance <= 15) {
+    digitalWrite(leds[0], HIGH);
+    digitalWrite(leds[1], HIGH);
+    digitalWrite(leds[2], HIGH);
+  }
+  else if (distance > 15 && distance <= 20) {
+    digitalWrite(leds[0], HIGH);
+    digitalWrite(leds[1], HIGH);
+  }
+  else if (distance > 20 && distance <= 25) {
+    digitalWrite(leds[0], HIGH);
+  }
+
 
   delay(300);
 }

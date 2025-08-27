@@ -1,10 +1,15 @@
 int trigPin = 3;
 int echoPin = 2;
-int pwm = 0;
 int leds[] = {11, 10, 9, 6, 5};
 
 void turnOn(int amount){
-  for(int i = 0; i < amount; i++){
+  // primeiro apaga todos os leds
+  for (int i = 0; i < 5; i++) {
+    digitalWrite(leds[i], LOW);
+  }
+
+  // acende aqueles 'anteriores'
+  for (int i = 0; i < amount; i++) {
     digitalWrite(leds[4 - i], HIGH);
   }
 }
@@ -33,13 +38,17 @@ void loop()
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
   
-  long duration = pulseIn(echoPin, HIGH);
+  long duration = pulseIn(echoPin, HIGH, 23500); // tempo de intervalo em microssegundos que o sensor espera para cada pulso
+  if (duration == 0){ // se o tempo for maior, a funcao retorna o valor 0 e entrará nesse if
+    return;
+  }
   float distance = 0.034 * duration / 2;
 
   if(distance < 0 || distance > 50){
     for(int i = 0; i < 5; i++){
-      digitalWrite(leds[i], LOW);
+      analogWrite(leds[i], 0);
     }
+    return;
   }
 
   if(distance <= 10){ // Vermelho 2
